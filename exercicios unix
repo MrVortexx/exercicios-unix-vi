@@ -1,0 +1,71 @@
+1)Criar 5 arquivos com conteúdo aleatório em uma pasta. Pelo menos um arquivo deve ter a palavra futebol em seu conteúdo. Uma sugestão é baixar arquivos html da internet (Como fazer isso? Você acaba de ganhar um exercício extra.). Listar apenas o nome de todos os arquivos que contém a palavra futebol (não é a palavra no nome e sim dentro do arquivo).
+-r
+find `pwd` -type f -print0 | xargs -0 grep -l "futebol"
+2)Dos arquivos acima criados, listar apenas o nome de todos que não contém a palavra futebol no seu conteúdo.
+-r 
+find `pwd` -type f -print0 | xargs -0 grep -L "futebol"
+
+3)Criar um arquivo qualquer de texto em uma máquina com linux, diferente da que esteja usando no ambiente de treinamento. Copiar este arquivo para um diretório qualquer na sua máquina de treinamento.
+-r
+1-conectando -> ssh -l *user* *ip* 
+2-cd ~/Desktop 
+3-touch Testando
+4-scp TESTANDO  user@ip:/home/usuario/Desktop
+
+4)Criar 5 arquivos quaisquer em uma máquina com linux, diferente da que esteja usando no ambiente de treinamento. Da sua máquina de treinamento, usar a ferramenta rsync para copiar os arquivos da outra máquina.
+-r
+rsync -azvh user@ip:/home/usuario/Desktop/arquivos ./
+
+5)apagar 2 arquivos dos copiados acima da sua máquina de treinamento e utilizar o rsync de novo para sincronizar os arquivos. Note que apenas os arquivos que estão faltando devem ser reenviados. Usar a opção -v para ser informado de quais arquivos estão sendo sincronizados.
+-r
+rsync -auzvh user@ip:/home/usuario/Desktop/arquivos ./
+
+6)Listar todos os processos rodando e que pertencem ao seu usuário apenas.
+-r
+ps
+
+7)Listar todos os arquivos abertos no sistema.
+lsof
+8)Listar todos os arquivos abertos pelo seu usuário.
+-r
+lsof -u usuario
+9)Criar um arquivo com o seguinte conteúdo: Só quero esta parte;Não quero esta. Em apenas uma linha, imprimir apenas o conteúdo antes do ';'. Resultado esperado: Só quero esta parte
+-r
+grep -i ';' TESTANDO | sed 's/\;//'
+
+10)Criar um arquivo com o seguinte conteúdo: Esta é a primeira linha;Esta é a segunda linha;Esta é a Terceira; Em apenas uma linha, criar um arquivo com o mesmo conteúdo, substituindo o ';' por quebra de linha.
+Resultado esperado:
+Esta é a primeira linha
+Esta é a segunda linha
+Esta é a terceira linha
+r-
+cp TESTANDO TESTANDOCPY | sed -i 's,;,\n,g'   TESTANDOCPY
+
+11)Criar um arquivo com o seguinte conteúdo:
+#!/bin/bash
+echo "Rodando!"
+Este é um arquivo de shell script que pode ser executado. Altere a permissão do arquivo para 644. Tente executá-lo com chamada direta. Se você não conseguiu, por quê? Faça com que seja possível a execução.
+-R
+Com a permissão em 644, nem um dos grupos possui a permissão de executar, pois 6 é somente de leitura e escrita, e 4 é somente leitura.
+Para permitir a execução em todos poderiamos simplesmente digitar chmod 777 nomedoarquivo
+
+12)Criar uma estrutura de diretórios com a seguinte forma:
+./l1
+./l1/aA
+./l1/l2
+./l1/l2/Aa
+./l1/l2/l3
+./l1/l2/l3/zz
+
+O arquivo 'aA' deve ter o conteúdo 'telcomanager'. O Arquivo 'Aa' o conteúdo 'TELCOMANAGER'. O Arquivo zz pode ter qualquer conteúdo que não seja vazio. Usando o comando find a partir do ./ (diretório pai de l1), em apenas uma linha trocar as letras minúsculas por maiúsculas no arquivo 'aA', trocar por minúsculas no arquivo 'Aa' e renomear o arquivo zz para zz.c. Novamente com apenas uma linha e usando o find, imprimir o conteúdo dos 3 arquivos.
+
+r
+1- mkdir -p l1/l2/l3 && cd l1
+2) adicionar os respectivos textos
+3)
+
+
+
+
+
+

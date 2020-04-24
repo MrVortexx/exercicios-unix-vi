@@ -1,0 +1,19 @@
+1)Copie a primeira linha e cole após a quinta linha.
+r:  CM mode -> yy -> :5 -> o -> cm mode -> p
+
+2)Mova a segunda linha para baixo da quarta linha.
+r: cm mode-> :2 -> V(Maiusculo) -> n:4-> o -> p
+
+3)Substitua todas as ocorrências de 'jack' por 'john'.
+:s/jack/john/g
+
+3)Vá até a linha 3 e apague a palavra 'All'.
+r: cm mode-> :2 ->  l_ right2x-> dw
+
+4)Ainda na linha 3, mova o cursor até o início da palavra 'makes' e apague a linha daí em diante.
+r: cm mode-> :20> l_right até 'makes'-> D
+
+5) vá até a linha 1, entre no modo de texto, mova o cursor até o início da palavra 'All' e troque por 'LLA'. Saia do modo texto, procure pela próxima palavra 'All' usando a busca do vi e com apenas um comando, substitua por 'LLA'. O vi possui um atalho que executa a última ação efetuada. Usar este comando. Faça isso para todas as ocorrências de 'All'.
+
+6)vá até o início do arquivo, no modo de comando, copia as 3 primeiras linhas, vá até o fim do arquivo e cole as linhas. Faça tudo isso apenas usando os comandos do vi.
+r: cm mode-> v -> j_down3x-> y -> ir ate a ultima linha -> o -> cm mode -> p
