@@ -22,7 +22,7 @@ rsync -auzvh user@ip:/home/usuario/Desktop/arquivos ./
 
 6)Listar todos os processos rodando e que pertencem ao seu usuário apenas.
 -r
-ps
+ps -u usuario
 
 7)Listar todos os arquivos abertos no sistema.
 lsof
